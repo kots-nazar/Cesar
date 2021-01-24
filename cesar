@@ -1,0 +1,29 @@
+alphabet = 'абвгґдеєжзиіїйклмнопрстуфхцчшщьюяабвгґдеєжзиіїйклмнопрстуфхцчшщьюя' \
+            'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz'
+f = int(input("Натисніть '1'(зашифрувати текст) або '2'(розшифрувати текст) >> "))
+if f == 1:
+    text = input('Введіть текст, який хочете зашифрувати >> ').lower()
+    key = int(input('Введіть ключ шифрування >> '))
+    text_d = ''
+    for letter in text:
+        position = alphabet.find(letter)
+        new_position = position + key
+        if letter in alphabet:
+            text_d = text_d + alphabet[new_position]
+        else:
+            text_d = text_d + letter
+    print(text_d)
+elif f == 2:
+    text = input('Введіть текст, який хочете розшифрувати >> ').lower()
+    key = int(input('Введіть ключ розшифрування >> '))
+    text_d = ''
+    for letter in text:
+        position = alphabet.find(letter)
+        new_position = position - key
+        if letter in alphabet:
+            text_d = text_d + alphabet[new_position]
+        else:
+            text_d = text_d + letter
+    print(text_d)
+else:
+    print('Можна вибрати лише 1 або 2')
